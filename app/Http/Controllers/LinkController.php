@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Link;
 class LinkController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class LinkController extends Controller
      */
     public function index()
     {
-        //
+        $link = Link:where('user_id' = '1');
+        return view('link.index');
     }
 
     /**
@@ -77,8 +78,13 @@ class LinkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Link $link)
     {
-        //
+        //Pedir confirmación
+
+        //Verificar que el usuario sea el dueño
+        $link->delete();
+
+        return back();
     }
 }
