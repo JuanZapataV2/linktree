@@ -18,5 +18,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::resource('/links', App\Http\Controllers\LinkController::class,);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
