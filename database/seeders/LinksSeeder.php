@@ -18,7 +18,7 @@ class LinksSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         for($i=0; $i<5; $i++){
-            DB::table('users')->insert([
+            DB::table('links')->insert([
                 'label' => $faker->catchPhrase(),
                 'url' => $faker->url(),
                 'user_id' => 1,

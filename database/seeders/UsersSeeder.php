@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UsersSeeder extends Seeder
 {
@@ -15,8 +18,14 @@ class UsersSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => "Juan Pablo Zapata",
-            'url' => "gogle.com",
-            'id' => Hash::make('hola123')
+            'email' => "juanp.zapataa@autonoma.edu.co",
+            'password' => Hash::make('admin')
         ]); 
+
+        DB::table('users')->insert([
+            'name' => Str::random(10),
+            'email' => Str::random(10).'@gmail.com',
+            'password' => Hash::make('password'),
+        ]);
     }
 }

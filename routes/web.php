@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +18,18 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::resource('/links', App\Http\Controllers\LinkController::class,);
+
+
+Route::middleware(['auth'])->group (function () {
+    Route::resource('/links', App\Http\Controllers\LinkController::class,);
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

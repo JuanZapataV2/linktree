@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Link;
+use Illuminate\Support\Facades\Auth;
+
 class LinkController extends Controller
 {
     /**
@@ -13,8 +15,8 @@ class LinkController extends Controller
      */
     public function index()
     {
-        $link = Link:where('user_id' = '1');
-        return view('link.index');
+        $links = Link::where('user_id', '=',1)->get();
+        return view('links.index', compact('links'));
     }
 
     /**
@@ -80,11 +82,17 @@ class LinkController extends Controller
      */
     public function destroy(Link $link)
     {
-        //Pedir confirmación
+        //TODO: Pedir confirmación
 
-        //Verificar que el usuario sea el dueño
-        $link->delete();
+        //TODO: Verificar que el usuario sea el dueño
 
-        return back();
+        if($link->owner->id == Auth::id()){
+            $link->delete();
+            return back()->with('_success','Este es un bien');
+        } else {
+            return back()->with('_error','Este es un error');
+        }
+
+        
     }
 }
