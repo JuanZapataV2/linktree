@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Link;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class LinkController extends Controller
 {
@@ -15,7 +16,7 @@ class LinkController extends Controller
      */
     public function index()
     {
-        $links = Link::where('user_id', '=',1)->get();
+        $links = Link::where('user_id', '=',1)->simplePaginate(5);
         return view('links.index', compact('links'));
     }
 
@@ -26,7 +27,7 @@ class LinkController extends Controller
      */
     public function create()
     {
-        //
+        return view('links.create');
     }
 
     /**
@@ -37,7 +38,15 @@ class LinkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // TODO: validaciones
+
+        $link = new Link();
+        $link->label = $request->input('label');
+        $link->url = $request->input('url');
+        $link->user_id = Auth::id();
+        $link->save();
+
+        return redirect(route('links.index'))->with('_success', 'Enlace creado exitosamente!');
     }
 
     /**
@@ -46,9 +55,9 @@ class LinkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Link $link)
     {
-        //
+        return view('links.show', compact('link'));
     }
 
     /**
@@ -57,9 +66,9 @@ class LinkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Link $link)
     {
-        //
+        return view('links.edit', compact('link'));
     }
 
     /**
@@ -69,9 +78,15 @@ class LinkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Link $link)
     {
-        //
+        // TODO: validaciones
+
+        $link->label = $request->input('label');
+        $link->url = $request->input('url');
+        $link->save();
+
+        return redirect(route('links.index'))->with('_success', '¡Enlace editado exitosamente!');
     }
 
     /**
@@ -88,9 +103,9 @@ class LinkController extends Controller
 
         if($link->owner->id == Auth::id()){
             $link->delete();
-            return back()->with('_success','Este es un bien');
+            return back()->with('_success','Enlace borrado correctamente!');
         } else {
-            return back()->with('_error','Este es un error');
+            return back()->with('_failure','No se ha podido borrar el enlace');
         }
 
         
