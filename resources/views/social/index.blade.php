@@ -23,35 +23,8 @@
                       </div>
                 </div>
             </form>
-
-
-            <form enctype="multipart/form-data" action="/home" method="POST"
-            onsubmit="return confirm('¿Esta seguro que desea cambiar su fondo?')">
-                <div style="display:inline-block;">
-                    <div class="card w-100">
-                        <div class="card-body">
-                          <h5 class="card-title">Sube tu propio fondo</h5>
-                          <p class="card-text">Personaliza aún más tu perfil.</p>
-                          <input type="file" name="background">
-                        <input type="hidden" name="_token" value="{{csrf_token()}}"><br>
-                        <input type="submit" class="pull-right btn btn-sm btn-primary mt-2" value="Actualizar fondo">
-                        </div>
-                      </div>
-                </div>
-            </form>
-
+            
             <br><h5 class="m-2 underline">Mis redes sociales</h5>
-            {{-- <div class="card w-100">
-                @foreach ($socials as $social)
-                    <div class=" m-1 p-1" style="display:inline-block;">
-                        <a href={{$social->url}}><img class="" src="/uploads/socials/{{$social->image}}" style="width: 40px; height:40px; "/></a>
-                        {{$social->url}}
-                        <a type="button" class="fixed btn btn-grey " href="{{ route('social.edit',$social->id) }}"><img src="https://www.flaticon.com/svg/vstatic/svg/1250/1250615.svg?token=exp=1612638478~hmac=ea7a5980685aa1a419f06267c18d34df" height="22"></a>
-                    </div>    
-                @endforeach
-            </div> --}}
-
-
             <table class="table table-striped table-hover">
                 <tr>
                     <th scope="col">Icono</th>
@@ -59,7 +32,6 @@
                     <th scope="col">URL</th>
                     <th scope="col"></th>
                 </tr>
-    
                 @foreach ($socials as $social)
                     <tr>
                         <td><a href={{$social->url}}><img class="" src="/uploads/socials/{{$social->image}}" style="width: 40px; height:40px; "/></a></td>
@@ -82,8 +54,23 @@
                 @endforeach
             </table>
             <div>
-                <a type="button" class=" btn-primary mt-3 p-1 " href="{{ route('social.create') }}"><img src="https://www.flaticon.com/svg/vstatic/svg/1717/1717787.svg?token=exp=1612501962~hmac=bc6ddcdecf47c5a9fbc94bf32523262b" height="25"> Añadir red social</a>
+                <a type="button" class=" btn-primary mt-3 p-1 " href="{{ route('social.create') }}"><img src="https://www.flaticon.com/svg/vstatic/svg/1004/1004759.svg?token=exp=1612645918~hmac=683a7c07c9e028690241c1314e80af03" height="25"> Añadir red social</a>
             </div>
+            <hr>
+            <form enctype="multipart/form-data" action="/home" method="POST"
+            onsubmit="return confirm('¿Esta seguro que desea cambiar su fondo?')">
+                <div style="display:block;">
+                    <div class="card w-100">
+                        <div class="card-body">
+                          <h5 class="card-title">Cambiar fondo de página principal</h5>
+                          <p class="card-text">Personaliza aún más tu perfil.</p>
+                          <input type="file" name="background">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}"><br>
+                        <input type="submit" class="pull-right btn btn-sm btn-primary mt-2" value="Actualizar fondo">
+                        </div>
+                      </div>
+                </div>
+            </form>
         </div>
 </div>
 @endsection

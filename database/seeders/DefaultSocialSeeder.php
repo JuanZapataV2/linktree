@@ -27,5 +27,19 @@ class DefaultSocialSeeder extends Seeder
             'name' => 'Instagram',
             'image' => 'instagram.png',
         ]);
+
+        DB::table('default_socials')->insert([
+            'name' => 'Facebook',
+            'image' => 'facebook.png',
+        ]);
+
+        DB::table('default_socials')->insert([
+            'name' => 'WhatsApp',
+            'image' => 'whatsapp.png',
+        ]);
+        DB::table('default_socials')->insert([
+            'name' => 'Spotify',
+            'image' => 'spotify.png',
+        ]);
     }
 }

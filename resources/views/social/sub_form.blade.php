@@ -6,6 +6,9 @@
           <option value="1" selected="selected">Youtube</option>
           <option value="2">Twitter</option>
           <option value="3">Instagram</option>
+          <option value="4">Facebook</option>
+          <option value="5">Whatsapp</option>
+          <option value="6">Spotify</option>
         </select>
       </div>
 </div>
