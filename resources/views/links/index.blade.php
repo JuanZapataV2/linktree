@@ -31,7 +31,7 @@
                                     onsubmit="return confirm('¿Esta seguro que desea remover el enlace?')">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class=" btn btn-danger"><img src="https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png" height="20"></img></button>
+                                    <button type="submit" class=" btn btn-danger"><img src="https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png" height="20"></button>
                                 </form>
                             </div>
                         </div>
@@ -40,6 +40,6 @@
             @endforeach
         </table><br>
         {{ $links->links() }}<br>
-        <a type="button" class="btn btn-primary mb-4 mt-2" href="{{ route('links.create') }}"><img src="https://www.flaticon.com/svg/vstatic/svg/1717/1717787.svg?token=exp=1612501962~hmac=bc6ddcdecf47c5a9fbc94bf32523262b" height="25"></img> Crear enlace</a>
+        <a type="button" class="btn btn-primary mb-4 mt-2" href="{{ route('links.create') }}"><img src="https://www.flaticon.com/svg/vstatic/svg/1717/1717787.svg?token=exp=1612501962~hmac=bc6ddcdecf47c5a9fbc94bf32523262b" height="25"> Crear enlace</a>
     </div>
 @endsection

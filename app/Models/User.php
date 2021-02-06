@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Link;
+use App\Models\Social;
 
 class User extends Authenticatable
 {
@@ -44,5 +45,9 @@ class User extends Authenticatable
 
     public function links(){
         return $this->hasMany(Link::class);
+    }
+
+    public function socials(){
+        return $this->hasMany(Social::class);
     }
 }

@@ -5,7 +5,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
 use Image;
+use App\Models\Social;
+use App\Models\DefaultSocial;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -15,15 +18,33 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $user = Auth::user();
-        return view('user.index', compact('user'));
+    {   
+        $user=Auth::user();
+        $socials= DB::select('SELECT default_socials.*, socials.* FROM socials 
+                            JOIN users ON users.id = socials.user_id 
+                            JOIN default_socials ON default_socials.id = socials.social_id 
+                            WHERE users.id ='. Auth::id());
+
+        return view('social.index', compact('user','socials'));
     }
 
     public function update_avatar(Request $request){
         //Subir la foto que el usuario eligió
         if ($request->hasFile('avatar')){
             $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300,300)->save(public_path('uploads/avatars/'.$filename));
+            $user = Auth::user();
+            $user->avatar=$filename;
+            $user->save();
+            return redirect(route('profile.index'))->with('_success', '¡Avatar  actualizado exitosamente!');
+        }
+    }
+
+    public function update_bg(Request $request){
+        //Subir la foto que el usuario eligió
+        if ($request->hasFile('background')){
+            $avatar = $request->file('background');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
             Image::make($avatar)->resize(300,300)->save(public_path('uploads/avatars/'.$filename));
             $user = Auth::user();

@@ -19,6 +19,7 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert([
             'name' => "Juan Pablo Zapata",
             'email' => "juanp.zapataa@autonoma.edu.co",
+            'avatar' => 'default.png',
             'password' => Hash::make('admin')
         ]); 
 

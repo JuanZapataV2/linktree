@@ -22,6 +22,7 @@ Auth::routes();
 
 Route::middleware(['auth'])->group (function () {
     Route::resource('/links', App\Http\Controllers\LinkController::class,);
+    Route::resource('/social', App\Http\Controllers\SocialController::class,);
     Route::resource('/profile', App\Http\Controllers\UserController::class,);
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
