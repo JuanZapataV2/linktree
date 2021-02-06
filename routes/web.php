@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group (function () {
 });
 
 Route::post('/profile', [App\Http\Controllers\UserController::class,'update_avatar']);
+Route::post('/home', [App\Http\Controllers\UserController::class,'update_bg']);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

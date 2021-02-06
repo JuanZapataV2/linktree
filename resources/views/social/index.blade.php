@@ -23,6 +23,23 @@
                       </div>
                 </div>
             </form>
+
+
+            <form enctype="multipart/form-data" action="/home" method="POST"
+            onsubmit="return confirm('¿Esta seguro que desea cambiar su fondo?')">
+                <div style="display:inline-block;">
+                    <div class="card w-100">
+                        <div class="card-body">
+                          <h5 class="card-title">Sube tu propio fondo</h5>
+                          <p class="card-text">Personaliza aún más tu perfil.</p>
+                          <input type="file" name="background">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}"><br>
+                        <input type="submit" class="pull-right btn btn-sm btn-primary mt-2" value="Actualizar fondo">
+                        </div>
+                      </div>
+                </div>
+            </form>
+
             <br><h5 class="m-2 underline">Mis redes sociales</h5>
             {{-- <div class="card w-100">
                 @foreach ($socials as $social)

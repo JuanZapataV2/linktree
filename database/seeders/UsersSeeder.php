@@ -20,6 +20,7 @@ class UsersSeeder extends Seeder
             'name' => "Juan Pablo Zapata",
             'email' => "juanp.zapataa@autonoma.edu.co",
             'avatar' => 'default.png',
+            'avatar' => 'default.jpg',
             'password' => Hash::make('admin')
         ]); 
 
