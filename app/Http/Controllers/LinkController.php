@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Link;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
+use App\Http\Requests\LinkRequest;
 
 class LinkController extends Controller
 {
@@ -16,7 +16,7 @@ class LinkController extends Controller
      */
     public function index()
     {
-        $links = Link::where('user_id', '=',1)->simplePaginate(5);
+        $links = Link::ownedBy(Auth::id())->simplePaginate(5);
         return view('links.index', compact('links'));
     }
 
@@ -36,9 +36,9 @@ class LinkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LinkRequest $request)
     {
-        // TODO: validaciones
+
 
         $link = new Link();
         $link->label = $request->input('label');
@@ -78,7 +78,7 @@ class LinkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Link $link)
+    public function update(LinkRequest $request, Link $link)
     {
         // TODO: validaciones
 

@@ -22,14 +22,15 @@ Auth::routes();
 
 Route::middleware(['auth'])->group (function () {
     Route::resource('/links', App\Http\Controllers\LinkController::class,);
-
+    Route::resource('/profile', App\Http\Controllers\UserController::class,);
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
-Auth::routes();
+Route::post('/profile', [App\Http\Controllers\UserController::class,'update_avatar']);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+

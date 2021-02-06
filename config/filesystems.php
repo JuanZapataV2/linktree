@@ -51,6 +51,10 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
+        'uploads/avatars' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/avatars'),
+        ],
 
     ],
 
