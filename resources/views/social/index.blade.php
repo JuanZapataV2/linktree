@@ -64,7 +64,7 @@
                         <div class="card-body">
                           <h5 class="card-title">Cambiar fondo de página principal</h5>
                           <p class="card-text">Personaliza aún más tu perfil.</p>
-                          <input type="file" name="backgrounds">
+                          <input type="file" name="background">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"><br>
                         <input type="submit" class="pull-right btn btn-sm btn-primary mt-2" value="Actualizar fondo">
                         </div>

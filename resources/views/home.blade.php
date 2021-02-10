@@ -5,7 +5,7 @@
 <div class="container jumbotron jumbotron-fluid p-5" style="width: 850px;height: 850px;background-repeat: no-repeat; background: url('/uploads/backgrounds/{{$user->background}}'">
     <div> 
         <a>
-            <h5 style="position:static; display:block; margin-left:auto; margin-right:auto; width:180px" class="p-1"> {{$user->name}} </h5>
+            <h5 style="position:static; display:block; margin-left:auto; margin-right:auto; width:180px" class="p-1 text-center"> {{$user->name}} </h5>
             <img src="/uploads/avatars/{{$user->avatar}}" style="width:150px; border-radious:50%; display: block; margin-left: auto; margin-right: auto;"/>
         </a>
         <div class="jumbotron" style="position:static; display:block; margin-left:auto; margin-right:auto; width:450px">
