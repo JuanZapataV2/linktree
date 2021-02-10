@@ -44,14 +44,14 @@ class UserController extends Controller
 
     public function update_bg(Request $request){
         //Subir la foto que el usuario eligió
-        if ($request->hasFile('background')){
-            $background = $request->file('background');
+        if ($request->hasFile('backgrounds')){
+            $background = $request->file('backgrounds');
             $filename = time() . '.' . $background->getClientOriginalExtension();
             Image::make($background)->save(public_path('uploads/backgrounds/'.$filename));
             $user = Auth::user();
             $user->background=$filename;
             $user->save();
-            return redirect(route('home'))->with('_success', '¡Fondo actualizado exitosamente!');
+            return redirect(route('profile.index'))->with('_success', '¡Fondo actualizado exitosamente!');
         }
     }
 

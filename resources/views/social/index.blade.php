@@ -57,14 +57,14 @@
                 <a type="button" class=" btn-primary mt-3 p-1 " href="{{ route('social.create') }}"><img src="https://www.flaticon.com/svg/vstatic/svg/1004/1004759.svg?token=exp=1612645918~hmac=683a7c07c9e028690241c1314e80af03" height="25"> Añadir red social</a>
             </div>
             <hr>
-            <form enctype="multipart/form-data" action="/home" method="POST"
+            <form enctype="multipart/form-data" action="/profile-bg" method="POST"
             onsubmit="return confirm('¿Esta seguro que desea cambiar su fondo?')">
                 <div style="display:block;">
                     <div class="card w-100">
                         <div class="card-body">
                           <h5 class="card-title">Cambiar fondo de página principal</h5>
                           <p class="card-text">Personaliza aún más tu perfil.</p>
-                          <input type="file" name="background">
+                          <input type="file" name="backgrounds">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"><br>
                         <input type="submit" class="pull-right btn btn-sm btn-primary mt-2" value="Actualizar fondo">
                         </div>

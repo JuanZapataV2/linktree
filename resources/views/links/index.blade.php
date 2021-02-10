@@ -35,4 +35,5 @@
         {{ $links->links() }}<br>
         <a type="button" class="btn btn-primary " href="{{ route('links.create') }}"><img src="https://www.flaticon.com/svg/vstatic/svg/1717/1717787.svg?token=exp=1612501962~hmac=bc6ddcdecf47c5a9fbc94bf32523262b" height="25"> Crear enlace</a>
     </div>
+    
 @endsection
