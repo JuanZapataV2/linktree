@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container jumbotron p-5" style="width: 850px;height: 850px;background-repeat: no-repeat; background: url('/uploads/backgrounds/{{$user->background}}'">
+<div class="container jumbotron jumbotron-fluid p-5" style="width: 850px;height: 850px;background-repeat: no-repeat; background: url('/uploads/backgrounds/{{$user->background}}'">
     <div> 
         <a>
             <h5 style="position:static; display:block; margin-left:auto; margin-right:auto; width:180px" class="p-1"> {{$user->name}} </h5>
