@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,11 +30,14 @@ Route::middleware(['auth'])->group (function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
+Route::get('public/{email}' , App\Http\Controllers\PublicProfileController::class );
+
+
 Route::post('/profile', [App\Http\Controllers\UserController::class,'update_avatar']);
 Route::post('/home', [App\Http\Controllers\UserController::class,'update_bg']);
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 
 
