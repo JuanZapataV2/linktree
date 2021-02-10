@@ -19,13 +19,6 @@ class SocialController extends Controller
      */
     public function index()
     {
-        // $query="";
-        // $total = new Social();
-        // $socials = new DefaultSocial();
-        // $user = Auth::user();
-        // $total->ownedBy(Auth::id());
-        // $socials->scopeOwnedBy($query,$total);
-        // return view('social.index', compact('user','socials'));
     }
 
     /**
@@ -104,9 +97,9 @@ class SocialController extends Controller
     {
         if($social->owner->id == Auth::id()){
             $social->delete();
-            return back()->with('_success','Enlace borrado correctamente!');
+            return back()->with('_success','Red social borrada correctamente!');
         } else {
-            return back()->with('_failure','No se ha podido borrar el enlace');
+            return back()->with('_failure','No se ha podido borrar la red social');
         }
     }
 }

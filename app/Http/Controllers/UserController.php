@@ -23,10 +23,11 @@ class UserController extends Controller
         $socials= DB::select('SELECT default_socials.*, socials.* FROM socials 
                             JOIN users ON users.id = socials.user_id 
                             JOIN default_socials ON default_socials.id = socials.social_id 
-                            WHERE users.id ='. Auth::id());
+                            WHERE users.id = :id', ['id' => $user->id]);
 
         return view('social.index', compact('user','socials'));
     }
+
 
     public function update_avatar(Request $request){
         //Subir la foto que el usuario eligió
@@ -83,8 +84,7 @@ class UserController extends Controller
      */
     public function show()
     {
-        $user = Auth::user();
-        return view('user.show_profile', compact('user'));
+        
     }
 
     /**
