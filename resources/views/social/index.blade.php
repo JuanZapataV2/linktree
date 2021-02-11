@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10 jumbotron">
             <a type="button" class="btn btn-grey text-center position-absolute translate-middle" style="inline-block" href="{{ route('links.index') }}">
-                <img src="https://www.flaticon.com/svg/vstatic/svg/130/130882.svg?token=exp=1612501804~hmac=ba4b4e8dcfd049fa6458d91f40f7d4bf" height="20">
+                <img src="https://www.flaticon.com/svg/vstatic/svg/860/860790.svg?token=exp=1613078657~hmac=129c323524be2b649c680f9c77e55688" height="20">
             </a>
             <h2 class="mx-auto "style="width: 400px;">Perfil de {{$user->name}}</h2><br>
             <img class="align-middle"src="/uploads/avatars/{{$user->avatar}}" style="width: 150px; height:150px; float:left; border-radious:50%; margin-right:25px;"/>
@@ -40,7 +40,7 @@
                         <td>
                             <div class="btn-toolbar ml-5" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group" role="group" aria-label="Link options">
-                                    <a type="button" class= "btn btn-grey " href="{{ route('social.edit',$social->id) }}"><img src="https://www.flaticon.com/svg/vstatic/svg/1250/1250615.svg?token=exp=1612638478~hmac=ea7a5980685aa1a419f06267c18d34df" height="22"></a>
+                                    <a type="button" class= "btn btn-grey " href="{{ route('social.edit',$social->id) }}"><img src="https://www.flaticon.com/svg/vstatic/svg/650/650143.svg?token=exp=1613078229~hmac=d680c63f7e0b292b42665a2f7bd60e0e" height="22"></a>
                                     <form action="{{ route('social.destroy', $social->id) }}" method="post"
                                         onsubmit="return confirm('¿Esta seguro que desea remover esta red social?')">
                                         @csrf
@@ -54,7 +54,7 @@
                 @endforeach
             </table>
             <div>
-                <a type="button" class=" btn-primary mt-3 p-1 " href="{{ route('social.create') }}"><img src="https://www.flaticon.com/svg/vstatic/svg/1004/1004759.svg?token=exp=1612645918~hmac=683a7c07c9e028690241c1314e80af03" height="25"> Añadir red social</a>
+                <a type="button" class=" btn-primary mt-3 p-1 " href="{{ route('social.create') }}"><img src="https://www.flaticon.com/svg/vstatic/svg/992/992651.svg?token=exp=1613078305~hmac=5de91314317f4b84da1bbd61dd4f85c5" height="25"> Añadir red social</a>
             </div>
             <hr>
             <form enctype="multipart/form-data" action="/profile-bg" method="POST"

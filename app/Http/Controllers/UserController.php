@@ -44,8 +44,8 @@ class UserController extends Controller
 
     public function update_bg(Request $request){
         //Subir la foto que el usuario eligió
-        if ($request->hasFile('backgrounds')){
-            $background = $request->file('backgrounds');
+        if ($request->hasFile('background')){
+            $background = $request->file('background');
             $filename = time() . '.' . $background->getClientOriginalExtension();
             Image::make($background)->save(public_path('uploads/backgrounds/'.$filename));
             $user = Auth::user();

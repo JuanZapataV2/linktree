@@ -18,8 +18,8 @@
                     <td>
                         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group" role="group" aria-label="Link options">
-                                <a href="{{ route('links.show', $link->id) }}" class=" btn btn-info"><img src="https://www.flaticon.com/svg/vstatic/svg/292/292178.svg?token=exp=1612647412~hmac=eee0ed07d25f00207bb81c968b4fc672" height="25"/></a>
-                                <a href="{{ route('links.edit', $link->id) }}" class="btn btn-warning" title="Editar"><img src="https://www.flaticon.com/svg/vstatic/svg/1250/1250615.svg?token=exp=1612638478~hmac=ea7a5980685aa1a419f06267c18d34df" height="25"/></a>
+                                <a href="{{ route('links.show', $link->id) }}" class=" btn btn-info"><img src="https://www.flaticon.com/svg/vstatic/svg/157/157933.svg?token=exp=1613078381~hmac=2f904b23e60108cbb5f46b005d4cf31f" height="25"/></a>
+                                <a href="{{ route('links.edit', $link->id) }}" class="btn btn-warning" title="Editar"><img src="https://www.flaticon.com/svg/vstatic/svg/1250/1250615.svg?token=exp=1613078400~hmac=96e5b06f948c780a75f0aec7b55419cf" height="25"/></a>
                                 <form action="{{ route('links.destroy', $link->id) }}" method="post"
                                     onsubmit="return confirm('¿Esta seguro que desea remover el enlace?')">
                                     @csrf
@@ -33,7 +33,7 @@
             @endforeach
         </table><br>
         {{ $links->links() }}<br>
-        <a type="button" class="btn btn-primary " href="{{ route('links.create') }}"><img src="https://www.flaticon.com/svg/vstatic/svg/1717/1717787.svg?token=exp=1612501962~hmac=bc6ddcdecf47c5a9fbc94bf32523262b" height="25"> Crear enlace</a>
+        <a type="button" class="btn btn-primary " href="{{ route('links.create') }}"><img src="https://www.flaticon.com/svg/vstatic/svg/992/992651.svg?token=exp=1613078305~hmac=5de91314317f4b84da1bbd61dd4f85c5" height="25"> Crear enlace</a>
     </div>
     
 @endsection

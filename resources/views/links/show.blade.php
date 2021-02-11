@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Ver enlace</h1>
-    <a type="button" class="btn btn-secondary mb-4 mt-2" href="{{ url()->previous() }}"><img src="https://www.flaticon.com/svg/vstatic/svg/130/130882.svg?token=exp=1612501804~hmac=ba4b4e8dcfd049fa6458d91f40f7d4bf" height="20"></img> Volver</a>
+    <a type="button" class="btn btn-secondary mb-4 mt-2" href="{{ url()->previous() }}"><img src="https://www.flaticon.com/svg/vstatic/svg/860/860790.svg?token=exp=1613078449~hmac=75e60a82e248d1a9c1cf7d259eaf1ab7" height="20">Volver</a>
     <table class="table table-striped table-hover">
         <tr>
             <th scope="col" style="width: 200px">Id</th>
