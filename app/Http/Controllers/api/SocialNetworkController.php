@@ -17,10 +17,7 @@ class SocialNetworkController extends Controller
      */
     public function index()
     {
-        $socials= DB::select('SELECT default_socials.*, socials.* FROM socials 
-                            JOIN users ON users.id = socials.user_id 
-                            JOIN default_socials ON default_socials.id = socials.social_id');
-
+        $socials=Social::searchSocials();
         return response()->json(['data' => $socials], 200);
     }
 
@@ -44,10 +41,7 @@ class SocialNetworkController extends Controller
      */
     public function show(Social $social)
     {
-        $social= DB::select('SELECT default_socials.*, socials.* FROM socials 
-                            JOIN users ON users.id = socials.user_id 
-                            JOIN default_socials ON default_socials.id = socials.social_id
-                            WHERE socials.id =:id', ['id' => $social->id]);
+        $social= Social::searchSocial($social);
         return response()->json(['data' => $social], 200);
     }
 
@@ -61,10 +55,7 @@ class SocialNetworkController extends Controller
     public function update(Request $request, Social $social)
     {
         $social->update($request->all());
-        $social= DB::select('SELECT default_socials.*, socials.* FROM socials 
-                            JOIN users ON users.id = socials.user_id 
-                            JOIN default_socials ON default_socials.id = socials.social_id
-                            WHERE socials.id =:id', ['id' => $social->id]);
+        $social= Social::searchSocial($social);
         return response()->json(['data' => $social], 200);
     }
 

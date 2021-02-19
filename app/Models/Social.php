@@ -29,4 +29,19 @@ class Social extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public static function searchSocial ($social){
+        $query = DB::select('SELECT default_socials.*, socials.* FROM socials 
+                            JOIN users ON users.id = socials.user_id 
+                            JOIN default_socials ON default_socials.id = socials.social_id
+                            WHERE socials.id =:id', ['id' => $social->id]);
+        return $query;
+    }
+
+    public static function searchSocials(){
+        $query = DB::select('SELECT default_socials.*, socials.* FROM socials 
+                            JOIN users ON users.id = socials.user_id 
+                            JOIN default_socials ON default_socials.id = socials.social_id');
+        return $query;
+    }
+
 }
