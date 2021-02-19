@@ -24,7 +24,7 @@ class SocialRequest extends FormRequest
     public function rules()
     {
         return [
-            'url' => 'required|max:256|url',
+            'url' => 'required|max:256',
         ];
     }
 }

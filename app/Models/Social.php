@@ -12,7 +12,7 @@ class Social extends Model
     use HasFactory;
 
     protected $fillable = [
-        'url',
+        'url','user_id','social_id'
     ];
 
     public function scopeOwnedBy($query, $user_id)
