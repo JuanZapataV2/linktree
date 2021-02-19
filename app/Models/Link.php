@@ -13,7 +13,7 @@ class Link extends Model
 
     protected $fillable = [
         'label',
-        'url',
+        'url'
     ];
 
     public function scopeOwnedBy($query, $user_id)
